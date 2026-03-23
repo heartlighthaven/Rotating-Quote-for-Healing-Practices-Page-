@@ -22,18 +22,16 @@ const quotes = [
 ];
 
 const quoteElement = document.getElementById("rotatingQuote");
-let currentQuoteIndex = 0;
+let currentIndex = 0;
 
-function showQuote(index) {
+function rotateQuote() {
   quoteElement.classList.remove("visible");
 
   setTimeout(() => {
-    quoteElement.textContent = quotes[index];
+    currentIndex = (currentIndex + 1) % quotes.length;
+    quoteElement.textContent = quotes[currentIndex];
     quoteElement.classList.add("visible");
-  }, 1400);
+  }, 1500);
 }
 
-setInterval(() => {
-  currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-  showQuote(currentQuoteIndex);
-}, 30000);
+setInterval(rotateQuote, 30000);
