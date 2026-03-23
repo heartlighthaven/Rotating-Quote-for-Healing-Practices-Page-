@@ -2,140 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Quote Bar</title>
-
-  <style>
-    body {
-      margin: 0;
-      background: #081423;
-    }
-
-    .quote-bar {
-      width: 100%;
-      padding: 60px 20px;
-      background: linear-gradient(180deg, #07111c 0%, #081423 100%);
-      border-top: 1px solid rgba(183, 202, 227, 0.12);
-      border-bottom: 1px solid rgba(183, 202, 227, 0.12);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quote-bar::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at center,
-        rgba(183, 202, 227, 0.08),
-        transparent 70%
-      );
-    }
-
-    .quote-bar-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .quote-label {
-      margin-bottom: 20px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(214, 223, 234, 0.6);
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .quote-text {
-      margin: 0 auto;
-      max-width: 900px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      line-height: 1.7;
-      color: #f7f1e8;
-
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1.5s ease, transform 1.5s ease;
-    }
-
-    .quote-text.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .quote-text::after {
-      content: "";
-      display: block;
-      width: 140px;
-      height: 1px;
-      margin: 26px auto 0;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(183, 202, 227, 0.4),
-        transparent
-      );
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotating Quote Section</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
   <section class="quote-bar">
     <div class="quote-bar-inner">
-
       <p class="quote-label">HEALING PRACTICES AND SELF DISCOVERY</p>
 
       <blockquote class="quote-text visible" id="rotatingQuote">
         Healing is not about becoming someone new. It is about returning to yourself.
       </blockquote>
-
     </div>
   </section>
 
-  <script>
-    const quotes = [
-      "Healing is not about becoming someone new. It is about returning to yourself.",
-      "You are allowed to grow slowly.",
-      "Self discovery begins when you get quiet enough to hear yourself clearly.",
-      "Rest can be part of healing too.",
-      "You do not have to rush your becoming.",
-      "There is wisdom in noticing what your heart has been carrying.",
-      "You are allowed to meet yourself with gentleness.",
-      "Growth often begins with honest reflection.",
-      "You can learn new ways of caring for yourself.",
-      "Your healing does not have to look like anyone else’s.",
-      "Even small moments of self awareness can create deep change.",
-      "You are still worthy on the days that feel heavy.",
-      "Understanding yourself is a powerful form of care.",
-      "It is okay to soften where you once had to stay guarded.",
-      "You are allowed to take up space in your own life.",
-      "Healing can begin with simply telling yourself the truth.",
-      "The more you listen inward, the more clearly you can return to yourself.",
-      "You do not need to have everything figured out to begin.",
-      "Becoming more of yourself is enough.",
-      "There is nothing weak about choosing to heal."
-    ];
-
-    const quoteElement = document.getElementById("rotatingQuote");
-    let index = 0;
-
-    function rotateQuote() {
-      quoteElement.classList.remove("visible");
-
-      setTimeout(() => {
-        index = (index + 1) % quotes.length;
-        quoteElement.textContent = quotes[index];
-        quoteElement.classList.add("visible");
-      }, 1500);
-    }
-
-    setInterval(rotateQuote, 30000);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
